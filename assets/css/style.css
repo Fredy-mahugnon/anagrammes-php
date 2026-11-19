@@ -39,88 +39,7 @@
     --card-pad-top:    24px;
 }
 
-@media (min-width: 900px) {
-    :root {
-        /* Mode « large » : deux champs côte à côte, libellés dans la boîte. */
-        --cols:            2;
-        --gap:             2px;
-        --form-width:      300px;
-        --field-border:    1px solid var(--border-soft);
-        --field-pad:       12px 14px;
-        --field-bg:        #FFFFFF;
-        --field-height:    82px;
-        --label-gap:       12px;
-        --label-size:      13px;
-        --input-border:    0 solid transparent;
-        --input-height:    30px;
-        --input-pad-right: 0px;
-        --clear-right:     30px;
-        --clear-top:       auto;
-        --clear-bottom:    24px;
-        --clear-transform: none;
-        --label-indent:    0px;
-        --input-indent:    12px;
-        --card-pad-top:    18px;
-    }
-}
-
-body.layout-wide {
-    --cols:            2;
-    --gap:             2px;
-    --form-width:      300px;
-    --field-border:    1px solid var(--border-soft);
-    --field-pad:       12px 14px;
-    --field-bg:        #FFFFFF;
-    --field-height:    82px;
-    --label-gap:       12px;
-    --label-size:      13px;
-    --input-border:    0 solid transparent;
-    --input-height:    30px;
-    --input-pad-right: 0px;
-    --clear-right:     30px;
-    --clear-top:       auto;
-    --clear-bottom:    24px;
-    --clear-transform: none;
-    --label-indent:    0px;
-    --input-indent:    12px;
-    --card-pad-top:    18px;
-}
-
-body.layout-narrow {
-    --cols:            1;
-    --gap:             0px;
-    --form-width:      323px;
-    --field-border:    0 solid transparent;
-    --field-pad:       0px;
-    --field-bg:        transparent;
-    --field-height:    auto;
-    --label-gap:       6px;
-    --label-size:      15px;
-    --input-border:    2px solid var(--border);
-    --input-height:    41px;
-    --input-pad-right: 38px;
-    --clear-right:     8px;
-    --clear-top:       50%;
-    --clear-bottom:    auto;
-    --clear-transform: translateY(-50%);
-    --label-indent:    17px;
-    --input-indent:    30px;
-    --card-pad-top:    24px;
-}
-
 body.auth-page { --card-pad-top: 18px; }
-
-/* Ajustements spécifiques à la mise en page large (deux champs côte à côte). */
-body.layout-wide .card { margin-left: 13px; margin-right: 13px; }
-body.layout-wide .card-body { padding-top: 14px; }
-body.layout-wide .panel { padding-left: 19.5px; }
-body.layout-wide .panel h1 { margin-bottom: 13px; }
-body.layout-wide .brand { font-size: 22px; }
-body.layout-wide .btn { padding: 0 19px; font-size: 15px; }
-
-/* Barre latérale du résultat alignée sur le bord du panneau. */
-body.layout-narrow .result { margin-left: -5px; }
-body.layout-narrow .form-actions { margin-top: 12px; }
 
 * { box-sizing: border-box; }
 
@@ -286,7 +205,7 @@ body.has-result-ko .panel { border-color: var(--red); }
     font-size: 12px;
 }
 
-.form-actions { margin-top: 10px; }
+.form-actions { margin-top: 12px; }
 
 .btn {
     display: inline-block;
@@ -310,6 +229,7 @@ body.has-result-ko .panel { border-color: var(--red); }
 /* -------------------------------------------------------------------------- */
 .result {
     margin-top: 8px;
+    margin-left: -5px;
     padding: 6px 0;
     background: var(--panel);
     border-left: 5px solid;
@@ -321,6 +241,7 @@ body.has-result-ko .panel { border-color: var(--red); }
 .result-ko { border-color: var(--red); color: var(--red); }
 
 .error-box {
+    width: 637px;
     margin-top: 8px;
     padding: 6px 12px;
     background: var(--error-bg);
@@ -329,9 +250,6 @@ body.has-result-ko .panel { border-color: var(--red); }
     font-size: 12px;
     line-height: 1.7;
 }
-
-body.layout-wide .error-box { width: 637px; }
-body.layout-narrow .error-box { width: 637px; }
 
 .alert {
     margin: 0 0 20px;
@@ -418,3 +336,39 @@ body.layout-narrow .error-box { width: 637px; }
 }
 
 .empty-state { font-size: 14px; }
+
+/* -------------------------------------------------------------------------- */
+/* Écrans larges : deux champs côte à côte, proportions des captures 01/08.    */
+/* -------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+    :root {
+        --cols:            2;
+        --gap:             2px;
+        --form-width:      300px;
+        --field-border:    1px solid var(--border-soft);
+        --field-pad:       12px 14px;
+        --field-bg:        #FFFFFF;
+        --field-height:    82px;
+        --label-gap:       12px;
+        --label-size:      13px;
+        --input-border:    0 solid transparent;
+        --input-height:    30px;
+        --input-pad-right: 0px;
+        --clear-right:     30px;
+        --clear-top:       auto;
+        --clear-bottom:    24px;
+        --clear-transform: none;
+        --label-indent:    0px;
+        --input-indent:    12px;
+        --card-pad-top:    18px;
+    }
+
+    .card { margin-left: 13px; margin-right: 13px; }
+    .card-body { padding-top: 14px; }
+    .panel { padding-left: 19.5px; }
+    .panel h1 { margin-bottom: 13px; }
+    .brand { font-size: 22px; }
+    .btn { padding: 0 19px; font-size: 15px; }
+    .result { margin-left: 0; }
+    .form-actions { margin-top: 10px; }
+}

@@ -3,22 +3,12 @@
 $flash = consume_flash();
 
 $authPage = in_array($pageTitle ?? '', ['Inscription', 'Connexion'], true);
-$forcedLayout = $_GET['layout'] ?? '';
-$layoutClass = '';
-if ($forcedLayout === 'wide') {
-    $layoutClass = ' layout-wide';
-} elseif ($forcedLayout === 'narrow') {
-    $layoutClass = ' layout-narrow';
-}
 
 // Le résultat colore les bordures du panneau (vert pour un succès, rouge sinon).
 $resultState = $result ?? null;
-$resultClass = '';
-if ($resultState === true) {
-    $resultClass = ' has-result-ok';
-} elseif ($resultState === false) {
-    $resultClass = ' has-result-ko';
-}
+$resultClass = $resultState === true
+    ? ' has-result-ok'
+    : ($resultState === false ? ' has-result-ko' : '');
 
 ?>
 <!doctype html>
@@ -29,7 +19,7 @@ if ($resultState === true) {
     <title><?= e($pageTitle ?? 'Vérificateur d’anagrammes') ?></title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
-<body class="<?= trim($layoutClass . ($authPage ? ' auth-page' : '') . $resultClass) ?>">
+<body class="<?= trim(($authPage ? 'auth-page' : '') . $resultClass) ?>">
 <div class="card">
     <header class="site-header">
         <a class="brand" href="<?= BASE_URL ?>/index.php">Anagramme</a>

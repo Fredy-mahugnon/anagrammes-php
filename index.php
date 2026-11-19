@@ -65,11 +65,6 @@ if (is_logged_in()) {
     }
 }
 
-$formAction = BASE_URL . '/index.php';
-if (isset($_GET['layout']) && in_array($_GET['layout'], ['wide', 'narrow'], true)) {
-    $formAction .= '?layout=' . urlencode($_GET['layout']);
-}
-
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -80,7 +75,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="alert alert-error" role="alert"><?= e($errors['form']) ?></div>
     <?php endif; ?>
 
-    <form id="verification-form" class="verification-form" method="post" action="<?= e($formAction) ?>" novalidate>
+    <form id="verification-form" class="verification-form" method="post" action="<?= BASE_URL ?>/index.php" novalidate>
         <?= csrf_field() ?>
 
         <div class="fields">

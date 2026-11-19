@@ -48,14 +48,6 @@ function is_logged_in(): bool
     return isset($_SESSION['user_id'], $_SESSION['username']);
 }
 
-function require_login(): void
-{
-    if (!is_logged_in()) {
-        set_flash('error', 'Veuillez vous connecter pour accéder à cette page.');
-        redirect(BASE_URL . '/auth/login.php');
-    }
-}
-
 function set_flash(string $type, string $message): void
 {
     $_SESSION['flash'] = ['type' => $type, 'message' => $message];
