@@ -28,10 +28,9 @@ CREATE TABLE verifications (
     CONSTRAINT fk_verifications_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Comptes de démonstration (mot de passe : password123, stocké haché).
+-- Compte de démonstration unique (mot de passe : password, stocké haché).
 INSERT INTO users (id, pseudo, password_hash) VALUES
-    (1, 'O lyrhes', '$2y$12$c0XXlTkH5wcMf9CyUSvDFut13EuLmkbuTOQDpxWEkts/JfhbevKgS'),
-    (2, 'testuser', '$2y$12$c0XXlTkH5wcMf9CyUSvDFut13EuLmkbuTOQDpxWEkts/JfhbevKgS');
+    (1, 'Frédy', '$2y$12$WwzaWXgS4H0QBDq9F8uIuu7uvE5UyBMk.B5BQe.pfMr0QE3qBJ88G');
 
 -- Historique de démonstration (identique à la capture 06-historique.png).
 INSERT INTO verifications (id, user_id, guest_token, string1, string2, is_anagram, created_at) VALUES

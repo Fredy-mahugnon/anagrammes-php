@@ -21,11 +21,13 @@ correspondre aux huit captures de référence fournies.
 3. Importer le schéma et les données de démonstration :
 
    ```powershell
-   Get-Content -Raw -Encoding UTF8 'sql\schema.sql' | & 'C:\xampp\mysql\bin\mysql.exe' -u root --default-character-set=utf8mb4
+   cmd /c '"C:\xampp\mysql\bin\mysql.exe" -u root --default-character-set=utf8mb4 < "sql\schema.sql"'
    ```
 
-   Le script crée la base `anagrammes_db` et deux comptes de démonstration
-   (mot de passe : `password123`) : `O lyrhes` et `testuser`.
+   (La redirection via `cmd` conserve les accents UTF-8 du pseudo `Frédy`.)
+
+   Le script crée la base `anagrammes_db` et un compte de démonstration
+   unique : `Frédy` / `password`, avec les 9 lignes d'historique de référence.
 
 4. Configuration de la base : `config/database.php` (par défaut `root` / mot de passe vide,
    base `anagrammes_db`, port `3306`).

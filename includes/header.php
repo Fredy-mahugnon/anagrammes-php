@@ -11,6 +11,15 @@ if ($forcedLayout === 'wide') {
     $layoutClass = ' layout-narrow';
 }
 
+// Le résultat colore aussi la grande carte (vert pour un succès, rouge sinon).
+$resultState = $result ?? null;
+$resultClass = '';
+if ($resultState === true) {
+    $resultClass = ' has-result-ok';
+} elseif ($resultState === false) {
+    $resultClass = ' has-result-ko';
+}
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -20,7 +29,7 @@ if ($forcedLayout === 'wide') {
     <title><?= e($pageTitle ?? 'Vérificateur d’anagrammes') ?></title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
-<body class="<?= trim($layoutClass . ($authPage ? ' auth-page' : '')) ?>">
+<body class="<?= trim($layoutClass . ($authPage ? ' auth-page' : '') . $resultClass) ?>">
 <div class="card">
     <header class="site-header">
         <a class="brand" href="<?= BASE_URL ?>/index.php">Anagramme</a>
