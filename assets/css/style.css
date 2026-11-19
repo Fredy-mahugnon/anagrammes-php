@@ -142,47 +142,11 @@ a:hover { text-decoration: underline; }
 /* Carte blanche                                                               */
 /* -------------------------------------------------------------------------- */
 .card {
-    position: relative;
-    overflow: hidden;
     background: var(--card);
     border: 1px solid #CDD6E2;
     margin: 29px 18px 0;
     padding: var(--card-pad-top) 28px 28px;
     min-height: 517px;
-}
-
-/* La couleur du résultat traverse toute la grande carte. */
-.card::after {
-    content: '';
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.10;
-}
-
-.card > * { position: relative; z-index: 1; }
-
-body.has-result-ok .card { border-color: var(--green); }
-body.has-result-ok .card::after {
-    background: var(--green);
-    animation: sweep-card 900ms ease-out forwards;
-}
-
-body.has-result-ko .card { border-color: var(--red); }
-body.has-result-ko .card::after {
-    background: var(--red);
-    animation: sweep-card 900ms ease-out forwards;
-}
-
-@keyframes sweep-card {
-    from { width: 0; }
-    to   { width: 100%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .card::after { animation: none; width: 100%; }
 }
 
 .site-header {
@@ -231,8 +195,15 @@ body.has-result-ko .card::after {
     display: inline-block;
     vertical-align: top;
     background: var(--panel);
+    border: 1px solid var(--border);
     padding: 22px;
+    transition: border-color 300ms ease;
 }
+
+/* Seules les bordures du panneau « Vérifier des anagrammes » prennent
+   la couleur du résultat, en plus du message lui-même. */
+body.has-result-ok .panel { border-color: var(--green); }
+body.has-result-ko .panel { border-color: var(--red); }
 
 .panel h1 {
     margin: 0 0 31px;

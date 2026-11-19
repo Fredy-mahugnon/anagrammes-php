@@ -11,7 +11,7 @@ if ($forcedLayout === 'wide') {
     $layoutClass = ' layout-narrow';
 }
 
-// Le résultat colore aussi la grande carte (vert pour un succès, rouge sinon).
+// Le résultat colore les bordures du panneau (vert pour un succès, rouge sinon).
 $resultState = $result ?? null;
 $resultClass = '';
 if ($resultState === true) {
