@@ -1,0 +1,412 @@
+/* --------------------------------------------------------------------------
+   Palette et proportions relevées sur les 8 captures de référence.
+   -------------------------------------------------------------------------- */
+:root {
+    --bg:           #EEF2F7;
+    --card:         #FFFFFF;
+    --panel:        #F8FBFF;
+    --blue:         #1A56A0;
+    --blue-btn:     #6D8ECE;
+    --blue-link:    #1A91D1;
+    --border:       #C9DCF5;
+    --border-soft:  #E1E7F0;
+    --border-strong:#B9C3D2;
+    --green:        #2E9D4F;
+    --red:          #D93025;
+    --error-bg:     #FDECEA;
+    --text:         #444444;
+    --table-head:   #F0F4FA;
+
+    /* Réglages du mode « étroit » (champs empilés). */
+    --cols:            1;
+    --gap:             0px;
+    --form-width:      323px;
+    --field-border:    0 solid transparent;
+    --field-pad:       0px;
+    --field-bg:        transparent;
+    --field-height:    auto;
+    --label-gap:       6px;
+    --label-size:      15px;
+    --input-border:    2px solid var(--border);
+    --input-height:    41px;
+    --input-pad-right: 38px;
+    --clear-right:     8px;
+    --clear-top:       50%;
+    --clear-bottom:    auto;
+    --clear-transform: translateY(-50%);
+    --label-indent:    17px;
+    --input-indent:    30px;
+    --card-pad-top:    24px;
+}
+
+@media (min-width: 900px) {
+    :root {
+        /* Mode « large » : deux champs côte à côte, libellés dans la boîte. */
+        --cols:            2;
+        --gap:             2px;
+        --form-width:      300px;
+        --field-border:    1px solid var(--border-soft);
+        --field-pad:       12px 14px;
+        --field-bg:        #FFFFFF;
+        --field-height:    82px;
+        --label-gap:       12px;
+        --label-size:      13px;
+        --input-border:    0 solid transparent;
+        --input-height:    30px;
+        --input-pad-right: 0px;
+        --clear-right:     30px;
+        --clear-top:       auto;
+        --clear-bottom:    24px;
+        --clear-transform: none;
+        --label-indent:    0px;
+        --input-indent:    12px;
+        --card-pad-top:    18px;
+    }
+}
+
+body.layout-wide {
+    --cols:            2;
+    --gap:             2px;
+    --form-width:      300px;
+    --field-border:    1px solid var(--border-soft);
+    --field-pad:       12px 14px;
+    --field-bg:        #FFFFFF;
+    --field-height:    82px;
+    --label-gap:       12px;
+    --label-size:      13px;
+    --input-border:    0 solid transparent;
+    --input-height:    30px;
+    --input-pad-right: 0px;
+    --clear-right:     30px;
+    --clear-top:       auto;
+    --clear-bottom:    24px;
+    --clear-transform: none;
+    --label-indent:    0px;
+    --input-indent:    12px;
+    --card-pad-top:    18px;
+}
+
+body.layout-narrow {
+    --cols:            1;
+    --gap:             0px;
+    --form-width:      323px;
+    --field-border:    0 solid transparent;
+    --field-pad:       0px;
+    --field-bg:        transparent;
+    --field-height:    auto;
+    --label-gap:       6px;
+    --label-size:      15px;
+    --input-border:    2px solid var(--border);
+    --input-height:    41px;
+    --input-pad-right: 38px;
+    --clear-right:     8px;
+    --clear-top:       50%;
+    --clear-bottom:    auto;
+    --clear-transform: translateY(-50%);
+    --label-indent:    17px;
+    --input-indent:    30px;
+    --card-pad-top:    24px;
+}
+
+body.auth-page { --card-pad-top: 18px; }
+
+/* Ajustements spécifiques à la mise en page large (deux champs côte à côte). */
+body.layout-wide .card { margin-left: 13px; margin-right: 13px; }
+body.layout-wide .card-body { padding-top: 14px; }
+body.layout-wide .panel { padding-left: 19.5px; }
+body.layout-wide .panel h1 { margin-bottom: 13px; }
+body.layout-wide .brand { font-size: 22px; }
+body.layout-wide .btn { padding: 0 19px; font-size: 15px; }
+
+/* Barre latérale du résultat alignée sur le bord du panneau. */
+body.layout-narrow .result { margin-left: -5px; }
+body.layout-narrow .form-actions { margin-top: 12px; }
+
+* { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* -------------------------------------------------------------------------- */
+/* Carte blanche                                                               */
+/* -------------------------------------------------------------------------- */
+.card {
+    background: var(--card);
+    margin: 29px 18px 0;
+    padding: var(--card-pad-top) 28px 28px;
+    min-height: 517px;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blue);
+    white-space: nowrap;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.main-nav a,
+.user-badge {
+    font-size: 16px;
+    color: var(--blue);
+}
+
+.user-badge { font-weight: 600; }
+
+.card-body { padding-top: 24px; }
+
+.card-footer {
+    text-align: center;
+    font-size: 14px;
+    color: #555555;
+    padding: 70px 0 30px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Panneau de formulaire                                                       */
+/* -------------------------------------------------------------------------- */
+.panel {
+    display: inline-block;
+    vertical-align: top;
+    background: var(--panel);
+    padding: 22px;
+}
+
+.panel h1 {
+    margin: 0 0 31px;
+    color: var(--blue);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.verification-form { width: var(--form-width); }
+
+.fields {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: var(--gap);
+}
+
+.field {
+    position: relative;
+    margin-bottom: 15px;
+    border: var(--field-border);
+    padding: var(--field-pad);
+    background: var(--field-bg);
+    min-height: var(--field-height);
+}
+
+.field label {
+    display: block;
+    margin-bottom: var(--label-gap);
+    padding-left: var(--label-indent);
+    color: var(--blue);
+    font-size: var(--label-size);
+    font-weight: 600;
+}
+
+.input-wrap { position: relative; }
+
+.text-input {
+    width: 100%;
+    height: var(--input-height);
+    padding: 6px var(--input-pad-right) 6px var(--input-indent);
+    font-family: inherit;
+    font-size: 18px;
+    color: var(--text);
+    background: #FFFFFF;
+    border: var(--input-border);
+    border-radius: 6px;
+    outline: none;
+}
+
+.text-input:focus { border-color: var(--blue-btn); }
+.text-input.is-ok { border-color: var(--green); }
+.text-input.is-ko { border-color: var(--red); }
+
+.clear-btn {
+    position: absolute;
+    right: var(--clear-right);
+    top: var(--clear-top);
+    bottom: var(--clear-bottom);
+    transform: var(--clear-transform);
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--blue);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.clear-btn:hover { color: var(--blue-link); }
+
+.field-errors {
+    margin: 6px 0 0;
+    padding-left: 0;
+    list-style: none;
+    color: var(--red);
+    font-size: 12px;
+}
+
+.form-actions { margin-top: 10px; }
+
+.btn {
+    display: inline-block;
+    height: 39px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--blue-btn);
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 39px;
+    cursor: pointer;
+}
+
+.btn:hover { background: var(--blue); text-decoration: none; }
+
+/* -------------------------------------------------------------------------- */
+/* Messages                                                                    */
+/* -------------------------------------------------------------------------- */
+.result {
+    margin-top: 8px;
+    padding: 6px 0;
+    background: var(--panel);
+    border-left: 5px solid;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.result-ok { border-color: var(--green); color: var(--green); }
+.result-ko { border-color: var(--red); color: var(--red); }
+
+.error-box {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: var(--error-bg);
+    border-left: 4px solid var(--red);
+    color: var(--red);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+body.layout-wide .error-box { width: 637px; }
+body.layout-narrow .error-box { width: 637px; }
+
+.alert {
+    margin: 0 0 20px;
+    padding: 10px 14px;
+    border-left: 4px solid var(--blue-btn);
+    background: var(--panel);
+    font-size: 14px;
+}
+
+.alert-error { border-color: var(--red); color: var(--red); }
+.alert-success { border-color: var(--green); color: var(--green); }
+
+/* -------------------------------------------------------------------------- */
+/* Inscription / connexion                                                     */
+/* -------------------------------------------------------------------------- */
+.auth-wrap {
+    width: 410px;
+    margin: 0 auto;
+}
+
+.auth-wrap h1 {
+    margin: 5px 0 13px;
+    color: var(--blue);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.auth-form .form-group { margin-bottom: 12px; }
+
+.auth-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--blue);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.auth-form .text-input {
+    border: 2px solid var(--border-strong);
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.auth-actions { margin-top: 16px; }
+
+.form-footnote {
+    margin: 16px 0 0;
+    font-size: 16px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Historique                                                                  */
+/* -------------------------------------------------------------------------- */
+.history { margin-top: 30px; }
+
+.history h2 {
+    margin: 0 0 22px;
+    color: var(--blue-link);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.history table {
+    width: 461px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.history th {
+    height: 36px;
+    padding: 8px 12px;
+    background: var(--table-head);
+    color: var(--blue);
+    text-align: left;
+    font-weight: 600;
+}
+
+.history td {
+    height: 37px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.empty-state { font-size: 14px; }
