@@ -24,9 +24,7 @@ $resultClass = $resultState === true
     <header class="site-header">
         <a class="brand" href="<?= BASE_URL ?>/index.php">Anagramme</a>
         <nav class="main-nav" aria-label="Navigation principale">
-            <a href="<?= BASE_URL ?>/index.php">Vérifier des anagrammes</a>
             <?php if (is_logged_in()): ?>
-                <a href="<?= BASE_URL ?>/index.php#historique">Historique</a>
                 <span class="user-badge"><?= e($_SESSION['username']) ?></span>
                 <a href="<?= BASE_URL ?>/auth/logout.php">Déconnexion</a>
             <?php else: ?>

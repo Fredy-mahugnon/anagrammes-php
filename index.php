@@ -144,7 +144,7 @@ require_once __DIR__ . '/includes/header.php';
                 </thead>
                 <tbody>
                 <?php foreach ($rows as $index => $row): ?>
-                    <tr>
+                    <tr class="<?= (int) $row['is_anagram'] === 1 ? 'is-ok' : 'is-ko' ?>">
                         <td><?= $index ?></td>
                         <td><?= e($row['string1']) ?></td>
                         <td><?= e($row['string2']) ?></td>

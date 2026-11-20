@@ -343,6 +343,9 @@ body.has-result-ko .panel { border-color: var(--red); }
     border-bottom: 1px solid var(--border-soft);
 }
 
+.history tbody tr.is-ok { color: var(--green); }
+.history tbody tr.is-ko { color: var(--red); }
+
 .empty-state { font-size: 14px; }
 
 /* -------------------------------------------------------------------------- */
