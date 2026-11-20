@@ -106,13 +106,6 @@ a:hover { text-decoration: underline; }
     padding-top: 24px;
 }
 
-.card-footer {
-    text-align: center;
-    font-size: 14px;
-    color: #555555;
-    padding: 70px 0 30px;
-}
-
 /* -------------------------------------------------------------------------- */
 /* Panneau de formulaire                                                       */
 /* -------------------------------------------------------------------------- */
